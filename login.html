@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GINGER MARKET</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        .login-container {
+            border: 2px dashed green;
+            padding: 30px;
+            margin: 0 auto;
+            max-width: 400px;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid green;
+            border-radius: 5px;
+            background-color: #333;
+            color: green;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #00cc00;
+        }
+        .message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h2>Login to GINGER MARKET</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Enter username" required><br>
+            <input type="password" id="password" placeholder="Enter password" required><br>
+            <input type="submit" value="Login">
+        </form>
+        <div id="error-message" class="message"></div>
+    </div>
+
+    <script>
+        // Login Credentials
+        const validUsername = 'gingeradmin';
+        const validPassword = 'ginger@1234';
+
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the entered username and password
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Validate the credentials
+            if (username === validUsername && password === validPassword) {
+                // Redirect to the GINGER MARKET page
+                window.location.href = 'gingermarket.html'; // Adjust this URL to your actual GINGER MARKET page
+            } else {
+                // Show error message if credentials are incorrect
+                document.getElementById('error-message').textContent = 'Invalid username or password. Please try again.';
+            }
+        });
+    </script>
+
+</body>
+</html>
